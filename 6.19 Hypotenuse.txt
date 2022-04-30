@@ -1,0 +1,25 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+using namespace std;
+
+double hypotenuse(double x, double y)
+{
+	double c = sqrt(pow(x, 2) + pow(y, 2));
+	return c;
+}
+int main()
+{
+	for (double i{ 1 }; i <= 3; i++)
+	{
+		cout << "Enter side 1: ";
+		int sideOne;
+		cin >> sideOne;
+		cout << "Enter side 2: ";
+		int sideTwo;
+		cin >> sideTwo;
+		cout << "Triangle" << setw(15) << "Side 1" << setw(16) << "Side 2" << endl;
+		cout << i << setw(17) << sideOne << setw(15) << " " << sideTwo << endl;
+		cout << "The hypotenuse is: " << fixed << setprecision(2) << hypotenuse(sideOne, sideTwo) << endl;
+	}
+}

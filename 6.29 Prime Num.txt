@@ -1,0 +1,31 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+int isPrime(int a)
+{
+	//I have no idea what 6.29 part C is asking me to do
+	int test{ 0 };
+	for (int i = 2; i <= a / 2; ++i) {
+		if (a % i == 0) {
+			test = 1;
+			break;
+		}
+	}
+	if (test == 1)
+	{
+		cout << setw(5) << "#Is not prime ";
+	}
+	else
+	{
+		cout << setw(5) << "#    Is prime ";
+	}
+	return a;
+}
+int main()
+{
+	for (int i{ 2 }; i <= 10000; i++)
+	{
+		cout << isPrime(i) << endl;
+	}
+}

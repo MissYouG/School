@@ -1,0 +1,44 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+int calculateCharges(int x, int y)
+{
+	int charges{ 0 };
+	charges += (y * 20);
+	if (x != 0)
+	{
+		charges += (x * 5);
+	}
+	cout << "\nTOTAL CHARGES: " << setw(14);
+	return charges;
+}
+int main()
+{
+	int hoursAdded{ 0 };
+	int hoursAddedThree{ 0 };
+	for (int i{ 1 }; i <= 4; ++i)
+	{
+		int charge{ 20 };
+		int hours{ 0 };
+		cout << "Enter hours for car " << i << ": ";
+		cin >> hours;
+		if (hours <= 3)
+		{
+			charge = 20;
+			hoursAddedThree++;
+		}
+		else
+		{
+			charge = ((hours - 3) * 5) + charge;
+			hoursAdded += hours + 1;
+		}
+		cout << "Car" << setw(15) << "Hours" << setw(15) << "Charge" << endl;
+		cout << i << setw(13) << hours << setw(15) << charge << endl;
+		if (i == 3)
+		{
+			cout << calculateCharges(hoursAdded, hoursAddedThree);
+			break;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+
+std::string flip()
+{
+	int HeadTail;
+	srand(time(0));
+	HeadTail = rand() % 2 + 1;
+	if (HeadTail == 1)
+	{
+		return "0";
+	}
+	else
+	{
+		return "1";
+	}
+}
+
+int main()
+{
+	int headCount{ 0 };
+	int tailCount{ 0 };
+	for (int i{ 1 }; i <= 100; ++i)
+	{
+		int HeadTail;
+		HeadTail = rand() % 2 + 1;
+		if (HeadTail == 1)
+		{
+			cout << "heads\t";
+			headCount++;
+		}
+		else
+		{
+			cout << "tails\t";
+			tailCount++;
+		}
+		if (i % 5 == 0)
+		{
+			cout << endl;
+		}
+	}
+	cout << "The results are:\nTails: " << tailCount << "\nHeads: " << headCount;
+
+	cout << endl << flip();
+}

@@ -1,0 +1,101 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class HeartRates
+{
+public:
+    //section constructor
+    HeartRates(string nameF_, string nameL_, int month_, int day_, int year_)
+    {
+        nameF = nameF_;
+        nameL = nameL_;
+        month = month_;
+        day = day_;
+        year = year_;
+    }
+    //section getters
+    string getNameF()
+    {
+        return nameF;
+    }
+    string getNameL()
+    {
+        return nameL;
+    }
+    int getDay()
+    {
+        return day;
+    }
+    int getMonth()
+    {
+        return month;
+    }
+    int getYear()
+    {
+        return year;
+    }
+    //section setters
+    void setNameF(string a)
+    {
+        nameF = a;
+    }
+    void setNameL(string a)
+    {
+        nameL = a;
+    }
+    void setDay(int a)
+    {
+        day = a;
+    }
+    void setMonth(int a)
+    {
+        month = a;
+    }
+    void setYear(int a)
+    {
+        year = a;
+    }
+    //section functions
+    void getAge(int a)
+    {
+        int Age;
+        Age = a - year;
+        cout << nameF << "s age is " << Age << endl;
+    }
+    void getMaxHR(int a)
+    {
+        int Age;
+        Age = a - year;
+        cout << nameF << "s maximum heart rate is " << 220 - Age << endl;
+    }
+    void getTargetHR(int a)
+    {
+        int Age;
+        Age = a - year;
+        int MaxHR;
+        MaxHR = 220 - Age;
+        cout << nameF << "s target heart rate is " << MaxHR * .5 << " through " << MaxHR * .85;
+    }
+    //section private
+private:
+    string nameF;
+    string nameL;
+    int month;
+    int day;
+    int year;
+};
+
+
+int main()
+{
+    HeartRates MyRate("Jake", "Arena", 01, 30, 2002);
+    cout << "Calculating Age, Max Heart Rate and Target Heart Rate of " << MyRate.getNameF() << " " << MyRate.getNameL() << "..." << endl;
+    cout << "Enter current year: ";
+    int YearC{ 0 };
+    cin >> YearC;
+    MyRate.getAge(YearC);
+    cout << "With the given information, we can confirm that: \n";
+    MyRate.getMaxHR(YearC);
+    MyRate.getTargetHR(YearC);
+}
